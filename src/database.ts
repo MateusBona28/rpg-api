@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm"
 import "dotenv/config"
 import { User } from "./entities/User.entity"
+import { Character } from "./entities/Character.entity"
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +12,7 @@ const AppDataSource = new DataSource({
     database: process.env.DB,
     logging: false,
     synchronize: true,
-    entities: [User]
+    entities: [User, Character]
     }
 )
 

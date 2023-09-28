@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Character } from "./Character.entity";
 
 @Entity('user')
 export class User {
@@ -13,4 +14,7 @@ export class User {
 
   @Column({type: 'boolean'})
   isAdmin: boolean | undefined
+
+  @OneToMany(() => Character, (character) => character.user, { eager: true })
+  characters: Character[] | undefined
 };
