@@ -1,6 +1,6 @@
 import { hash } from "bcryptjs";
 import AppDataSource from "../database";
-import { User } from "../entities/user.entity";
+import { User } from "../entities/User.entity";
 
 class UserService {
   userRepository = AppDataSource.getRepository(User)
