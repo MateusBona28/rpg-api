@@ -25,7 +25,7 @@ class AuthService {
   const token = jwt.sign(
     {
       email: user.username,
-      isAdm: user.isAdm,
+      isAdmin: user.isAdmin,
       id: user.id,
     },
     process.env.SECRET_KEY as string,
