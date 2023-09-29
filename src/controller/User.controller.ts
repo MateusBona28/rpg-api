@@ -1,13 +1,17 @@
 import { Request, Response } from "express";
 import { userService } from "../services/User.services";
 
-export class UserController {
+class UserController {
   async post(request: Request, response: Response) {
     try {
       const userResponse = await userService.create( request.body );
       return response.status(201).json(userResponse);
-    } catch (error: any) {
-      return response.status(400).json({ message: error.message });
+    } catch (error) {
+      if ( error instanceof Error ) {
+        return response.status(400).json({ message: error.message });
+      }
+
+      return response.status(500)
     }
   }
 

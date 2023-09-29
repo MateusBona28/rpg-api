@@ -6,6 +6,9 @@ export class Character {
   @PrimaryGeneratedColumn('uuid')
   id: string | undefined
 
+  @Column({ type: 'varchar', nullable: true })
+  name: string | undefined
+
   @Column({ type: 'integer' })
   san: number | undefined
 
@@ -15,10 +18,10 @@ export class Character {
   @Column({ type: 'integer' })
   pe: number | undefined
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   portrait_image: string | undefined
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true  })
   token_image: string | undefined
 
   @ManyToOne(() => User, user => user.characters)
